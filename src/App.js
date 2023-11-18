@@ -288,6 +288,11 @@ import React, {useState} from "react";
 
     const handleSubmit = (e) => {
       e.preventDefault();
+
+      const form = e.target;
+
+      form.submit();
+      
       setShowModal(true);
       setTimeout(() => {setShowModal(false)}, 3000);
     };
@@ -315,21 +320,12 @@ import React, {useState} from "react";
             </div>
             <SocialLinks />
           </div>
-          <form name="contact" id="contact-form" method="POST" data-netlify="true" onSubmit={handleSubmit}>
+          <form name="contact" id="contact-form" method="POST" data-netlify="true" onSubmit={handleSubmit} action="/contact">
             <input type="hidden" name="form-name" value="contact"/>
-
-            <div>
-              <input placeholder="Name" name="name" type="text" required/>
-            </div>
-            <div>
-              <input placeholder="Email" name="email" type="email" required/>
-            </div>
-            <div>
-              <textarea placeholder="Message" type="text" name="message" required/>
-            </div>
-            <div>
-              <button className="button" id="submit" type="Submit">submit</button>
-            </div>
+            <input placeholder="Name" name="name" type="text" required/>
+            <input placeholder="Email" name="email" type="email" required/>
+            <textarea placeholder="Message" type="text" name="message" required/>
+            <button className="button" id="submit" type="Submit">submit</button>
           </form>
         </div>
         {showModal && <Modal message="Form submitted successfully!" />}
