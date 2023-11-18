@@ -286,13 +286,20 @@ import React, {useState} from "react";
 
     const [showModal, setShowModal] = useState(false);
 
-    const handleSubmit = (e) => {
-      e.preventDefault();
+    const handleSubmit = (event) => {
+      event.preventDefault();
 
-      const form = e.target;
-
-      form.submit();
+      const myForm = event.target;
+      const formData = new FormData(myForm);
       
+      fetch("/", {
+        method: "POST",
+        headers: { "Content-Type": "application/x-www-form-urlencoded" },
+        body: new URLSearchParams(formData).toString(),
+      })
+        .then(() => console.log("Form successfully submitted"))
+        .catch((error) => alert(error));
+
       setShowModal(true);
       setTimeout(() => {setShowModal(false)}, 3000);
     };
@@ -320,12 +327,12 @@ import React, {useState} from "react";
             </div>
             <SocialLinks />
           </div>
-          <form name="contact" id="contact-form" method="POST" data-netlify="true" onSubmit={handleSubmit} action="/contact">
+          <form name="contact" id="contact-form" method="POST" data-netlify="true" onSubmit={handleSubmit}>
             <input type="hidden" name="form-name" value="contact"/>
             <input placeholder="Name" name="name" type="text" required/>
             <input placeholder="Email" name="email" type="email" required/>
             <textarea placeholder="Message" type="text" name="message" required/>
-            <button className="button" id="submit" type="Submit">submit</button>
+            <button className="button" id="submit" type="submit">submit</button>
           </form>
         </div>
         {showModal && <Modal message="Form submitted successfully!" />}
