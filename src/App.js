@@ -328,7 +328,7 @@ import React, {useState} from "react";
               <textarea placeholder="Message" type="text" name="message" required/>
             </div>
             <div>
-              <button className="button" id="submit" value="Submit" onClick={handleSubmit}>submit</button>
+              <button className="button" id="submit" type="Submit" onClick={handleSubmit}>submit</button>
             </div>
           </form>
         </div>
