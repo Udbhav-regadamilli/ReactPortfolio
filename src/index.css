@@ -1010,16 +1010,17 @@ textarea:focus {
   border-bottom: 1px solid #f300b4;
 }
 
-input[type="submit"] {
+button {
   background: #f300b4;
   color: #fafafa;
   margin-top: 1rem;
   width: auto;
   float: right;
+  padding: 10px;
 }
 
-input[type="submit"]:hover,
-input[type="submit"]:focus {
+button:hover,
+button:focus {
   cursor: pointer;
   color: #333;
   background: #fafafa;

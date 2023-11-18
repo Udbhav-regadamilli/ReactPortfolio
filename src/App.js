@@ -315,7 +315,7 @@ import React, {useState} from "react";
             </div>
             <SocialLinks />
           </div>
-          <form name="contact" id="contact-form" method="POST" netlify data-netlify="true" data-netlify-honeypot="bot-field">
+          <form name="contact" id="contact-form" method="POST" data-netlify="true">
             <input type="hidden" name="form-name" value="contact"/>
 
             <div>
@@ -328,7 +328,7 @@ import React, {useState} from "react";
               <textarea placeholder="Message" type="text" name="message" required/>
             </div>
             <div>
-              <input className="button" id="submit" value="Submit" type="submit" onClick={handleSubmit}/>
+              <button className="button" id="submit" value="Submit" onClick={handleSubmit}>submit</button>
             </div>
           </form>
         </div>
