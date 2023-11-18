@@ -1136,7 +1136,7 @@ footer .wrapper {
   height: 3px; /* Adjust the height of the line */
   background-color: green;
   border-radius: 25px;
-  animation: moveLine 3s linear infinite; /* Adjust the duration */
+  animation: moveLine 2s linear infinite; /* Adjust the duration */
 }
 
 .modal p {

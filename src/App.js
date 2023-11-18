@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState} from "react";
 
 
 /***********************
@@ -284,6 +284,14 @@ import React from "react";
   
   const Contact = props => {
 
+    const [showModal, setShowModal] = useState(false);
+
+    const handleSubmit = (event) => {
+      event.preventDefault();
+      setShowModal(true);
+      setTimeout(() => {setShowModal(false)}, 2000);
+    };
+
     return (
       <section id="contact">
         <div className="container">
@@ -307,7 +315,7 @@ import React from "react";
             </div>
             <SocialLinks />
           </div>
-          <form name="contact" id="contact-form" method="POST" data-netlify="true">
+          <form name="contact" id="contact-form" method="POST" data-netlify="true" onSubmit={handleSubmit}>
             <input type="hidden" name="form-name" value="contact"/>
             <input placeholder="Name" name="name" type="text" required/>
             <input placeholder="Email" name="email" type="email" required/>
@@ -315,9 +323,17 @@ import React from "react";
             <button className="button" id="submit" type="submit">submit</button>
           </form>
         </div>
+        {showModal && <Modal message="Form submitted successfully!" />}
       </section>
     );
   };
+  
+  const Modal = ({message}) => (
+    <div className="modal">
+      <p>{message}</p>
+      <div className="load"></div>
+    </div>
+  );
   
   /***********************
     Footer Component
