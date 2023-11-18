@@ -315,7 +315,7 @@ import React, {useState} from "react";
             </div>
             <SocialLinks />
           </div>
-          <form name="contact" id="contact-form" onSubmit="submit" method="POST" netlify>
+          <form name="contact" id="contact-form" method="POST" netlify data-netlify="true" data-netlify-honeypot="bot-field">
             <input type="hidden" name="form-name" value="contact"/>
 
             <div>
