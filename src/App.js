@@ -69,6 +69,16 @@ const Nav = (props) => {
    ***********************/
 
 const Header = (props) => {
+  const handleDownload = () => {
+    const filePath = "UDBHAVRResume.docx";
+    const link = document.createElement("a");
+    link.href = filePath;
+    link.download = "UDBHAV_R_Resume.docx";
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  };
+
   return (
     <header id="welcome-section">
       <div className="forest" />
@@ -83,7 +93,7 @@ const Header = (props) => {
           </span>
         </h1>
         <div className="buttons">
-          <a href="#projects">my portfolio</a>
+          <a href="/" onClick={handleDownload}>Download CV</a>
           <a href="#contact" className="cta">
             get in touch
           </a>
@@ -291,7 +301,6 @@ const Projects = (props) => {
    ***********************/
 
 const Contact = (props) => {
-
   return (
     <section id="contact">
       <div className="container">
